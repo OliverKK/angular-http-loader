@@ -18,6 +18,8 @@
           function (httpMethodInterceptorProvider) {
             httpMethodInterceptorProvider.whitelistDomain('validate.jsontest.com');
             httpMethodInterceptorProvider.whitelistDomain('github.com');
+            httpMethodInterceptorProvider.headerName('X-Requested-With');
+            httpMethodInterceptorProvider.requestType('XMLHttpRequest');
           }
         ])
 
