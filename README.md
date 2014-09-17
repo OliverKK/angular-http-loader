@@ -41,7 +41,7 @@ Add the `ng.httpLoader` module as a dependency in your application:
 angular.module('demo', ['ng.httpLoader'])
 ```
 
-Whitelist the domains that you want the loader to show for:
+Whitelist the domains and define the request type contained by its header name that you want the loader to show for:
 
 ```javascript
 .config([
@@ -49,6 +49,8 @@ Whitelist the domains that you want the loader to show for:
   function (httpMethodInterceptorProvider) {
     httpMethodInterceptorProvider.whitelistDomain('github.com');
     httpMethodInterceptorProvider.whitelistDomain('twitter.com');
+    httpMethodInterceptorProvider.headerName('X-Requested-With');
+    httpMethodInterceptorProvider.requestType('XMLHttpRequest');
     // ...
   }
 ])
