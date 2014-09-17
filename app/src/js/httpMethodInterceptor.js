@@ -67,8 +67,10 @@ angular.module('ng.httpLoader.httpMethodInterceptor', [])
        */
       var isAllowedRequestType = function (headers) {
         for (var i = requestTypes.length; i--;) {
-          if (headers[requestHeaderName].indexOf(requestTypes[i]) !== -1) {
-            return true;
+          if(headers[requestHeaderName]) {
+            if (headers[requestHeaderName].indexOf(requestTypes[i]) !== -1) {
+              return true;
+            }
           }
         }
         return false;
