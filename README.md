@@ -41,16 +41,17 @@ Add the `ng.httpLoader` module as a dependency in your application:
 angular.module('demo', ['ng.httpLoader'])
 ```
 
-Whitelist the domains and define the request type contained by its header name that you want the loader to show for:
+Whitelists a specified url. This is mainly used to identify Ajax requests. Most JavaScript frameworks send this field with the value of XMLHttpRequest:
 
 ```javascript
 .config([
   'httpMethodInterceptorProvider',
   function (httpMethodInterceptorProvider) {
-    httpMethodInterceptorProvider.whitelistDomain('github.com');
-    httpMethodInterceptorProvider.whitelistDomain('twitter.com');
-    httpMethodInterceptorProvider.headerName('X-Requested-With');
-    httpMethodInterceptorProvider.requestType('XMLHttpRequest');
+    httpMethodInterceptorProvider.requestConfig({ 
+      url: '/allowed/url',
+      headerName: 'X-Requested-With',
+      requestType: 'XMLHttpRequest'
+    });
     // ...
   }
 ])
