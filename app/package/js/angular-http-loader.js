@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('ng.httpLoader', [
-    'ng.httpLoader.httpMethodInterceptor'
+  'ng.httpLoader.httpMethodInterceptor'
 ])
 
   .directive('ngHttpLoader', [
@@ -155,7 +155,6 @@ angular.module('ng.httpLoader', [
               if (afterEvent !== '') { $rootScope.$broadcast(afterEvent) } // Broadcasts a event before show or hide takes place
               return;
             } else if (timeoutId) {
-              if (afterEvent !== '') { $rootScope.$broadcast(afterEvent) } // Broadcasts a event before show or hide takes place
               return;
             }
 
@@ -201,6 +200,8 @@ angular.module('ng.httpLoader.httpMethodInterceptor', [])
       '$rootScope',
       function ($q, $rootScope) {
         var numLoadings = 0;
+
+
 
         /**
          * Checks if the url is allowed by the configuration.
@@ -271,7 +272,6 @@ angular.module('ng.httpLoader.httpMethodInterceptor', [])
            */
           response: function (response) {
             checkAndHide(response.config);
-
             return response || $q.when(response);
           },
 
