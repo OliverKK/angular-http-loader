@@ -155,7 +155,6 @@ angular.module('ng.httpLoader', [
               if (afterEvent !== '') { $rootScope.$broadcast(afterEvent) } // Broadcasts a event before show or hide takes place
               return;
             } else if (timeoutId) {
-              if (afterEvent !== '') { $rootScope.$broadcast(afterEvent) } // Broadcasts a event before show or hide takes place
               return;
             }
 
